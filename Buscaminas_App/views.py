@@ -17,14 +17,15 @@ def form_tablero(request):
         table_form = tableForm(request.POST)
         table_form_v = tableForm()
         if table_form.is_valid():
-            columna = int(table_form.cleaned_data['columna'])
-            fila = int(table_form.cleaned_data['fila'])
+            columna = table_form.cleaned_data['columna']
+            fila = table_form.cleaned_data['fila']
+            minas = table_form.cleaned_data['minas']
 
             filas_list = range(fila)
             columnas_list = range(columna)
 
 
-            return render(request, 'ActBuscaminas/tablero.html',
+            return render(request,'ActBuscaminas/tablero.html',
                           {'columna': columnas_list, "fila": filas_list, "tableForm": table_form})
     else:
         table_form = tableForm()
