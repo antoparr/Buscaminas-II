@@ -20,9 +20,9 @@
 <body>
     <div class="todo">
     <h1>Crear y Mostrar Tablero de Buscaminas</h1>
-    <form method="get">
+    <form method="post">
 
-
+        {% csrf_token %}
         {% for field in tableForm %}
             <div class="celdas">
                 <label for= "{{ field.name }}" >{{ field.label }}</label>
